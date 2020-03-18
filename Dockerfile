@@ -3,6 +3,7 @@ FROM golang:1.14.0-alpine AS builder
 
 ENV GOFLAGS="-mod=readonly"
 
+RUN apk add --no-cache --update grep sed gcc musl-dev openssl
 RUN apk add --update --no-cache ca-certificates make git curl mercurial bzr
 
 LABEL app="build-halodoc-tlv"
