@@ -10,12 +10,12 @@ Running it then should be as simple as:
 
 ```console
 $ make
-$ ./bin/halodoc < input.txt
+$ ./bin/halodoc-tlv < input.txt
 ```
 
 Or
 ```console
-$ ./bin/halodoc <input:eg UPPRCS-0005-abcde>
+$ ./bin/halodoc-tlv <input:eg UPPRCS-0005-abcde>
 ```
 
 To build inside docker
@@ -25,10 +25,10 @@ $ make package
 
 To run inside docker
 ```console
-$ docker pull ariwira/halodoc:latest
-$ docker run --rm ariwira/halodoc bash -c "halodoc < /opt/halodoc-tlv/input.txt"
+$ docker pull prasetyowira/halodoc-tlv:latest
+$ docker run --rm ariwira/halodoc bash -c "halodoc-tlv < /opt/halodoc-tlv/input.txt"
 or
-$ docker run --rm ariwira/halodoc bash -c "halodoc UPPRCS-0005-abcde"
+$ docker run --rm ariwira/halodoc bash -c "halodoc-tlv UPPRCS-0005-abcde"
 ```
 
 ### Testing

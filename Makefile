@@ -1,12 +1,12 @@
 .PHONY: build build-alpine clean test help default
 
-BIN_NAME=halodoc
+BIN_NAME=halodoc-tlv
 
 VERSION := $(shell grep "const Version " version/version.go | sed -E 's/.*"(.+)"$$/\1/')
 GIT_COMMIT=$(shell git rev-parse HEAD)
 GIT_DIRTY=$(shell test -n "`git status --porcelain`" && echo "+CHANGES" || true)
 BUILD_DATE=$(shell date '+%Y-%m-%d-%H:%M:%S')
-IMAGE_NAME := "ariwira/halodoc-tlv"
+IMAGE_NAME := "halodoc-tlv"
 
 default: test
 

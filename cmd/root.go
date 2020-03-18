@@ -12,7 +12,7 @@ var cfgFile string
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "halodoc {input}",
+	Use:   "halodoc-tlv {input}",
 	Short: "Run TLV Checker",
 	Long: `Run Sudo Checker`,
 	Args: cobra.RangeArgs(0, 1),

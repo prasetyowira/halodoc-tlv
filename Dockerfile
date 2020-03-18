@@ -5,16 +5,16 @@ ENV GOFLAGS="-mod=readonly"
 
 RUN apk add --update --no-cache ca-certificates make git curl mercurial bzr
 
-LABEL app="build-halodoc"
-LABEL REPO="https://github.com/prasetyowira/halodoc"
+LABEL app="build-halodoc-tlv"
+LABEL REPO="https://github.com/prasetyowira/halodoc-tlv"
 
-ENV PROJPATH=/go/src/github.com/prasetyowira/halodoc
+ENV PROJPATH=/go/src/github.com/prasetyowira/halodoc-tlv
 
 # Because of https://github.com/docker/docker/issues/14914
 ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
-ADD . /go/src/github.com/prasetyowira/halodoc
-WORKDIR /go/src/github.com/prasetyowira/halodoc
+ADD . /go/src/github.com/prasetyowira/halodoc-tlv
+WORKDIR /go/src/github.com/prasetyowira/halodoc-tlv
 
 RUN go mod download
 
@@ -32,7 +32,7 @@ RUN apk add --no-cache --update \
 
 ARG GIT_COMMIT
 ARG VERSION
-LABEL REPO="https://github.com/prasetyowira/halodoc"
+LABEL REPO="https://github.com/prasetyowira/halodoc-tlv"
 LABEL GIT_COMMIT=$GIT_COMMIT
 LABEL VERSION=$VERSION
 
@@ -41,14 +41,14 @@ ENV PATH=$PATH:/opt/halodoc-tlv/bin
 
 WORKDIR /opt/halodoc-tlv/bin
 
-COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc-tlv/bin/halodoc /opt/halodoc-tlv/bin/
+COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc-tlv/bin/halodoc-tlv /opt/halodoc-tlv/bin/
 COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc-tlv/input.txt /opt/halodoc-tlv/
-RUN ls -la /opt/halodoc
+RUN ls -la /opt/halodoc-tlv
 RUN ls -la /opt/halodoc-tlv/bin
-RUN chmod +x /opt/halodoc-tlv/bin/halodoc
+RUN chmod +x /opt/halodoc-tlv/bin/halodoc-tlv
 
 # Create appuser
-RUN adduser -D -g '' halodoc
-USER halodoc
+RUN adduser -D -g '' halodoc-tlv
+USER halodoc-tlv
 
-CMD ["/opt/halodoc-tlv/bin/halodoc", "< input.txt"]
+CMD ["/opt/halodoc-tlv/bin/halodoc-tlv", "< input.txt"]
