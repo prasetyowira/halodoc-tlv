@@ -37,18 +37,18 @@ LABEL GIT_COMMIT=$GIT_COMMIT
 LABEL VERSION=$VERSION
 
 # Because of https://github.com/docker/docker/issues/14914
-ENV PATH=$PATH:/opt/halodoc/bin
+ENV PATH=$PATH:/opt/halodoc-tlv/bin
 
-WORKDIR /opt/halodoc/bin
+WORKDIR /opt/halodoc-tlv/bin
 
-COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc/bin/halodoc /opt/halodoc/bin/
-COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc/input.txt /opt/halodoc/
+COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc-tlv/bin/halodoc /opt/halodoc-tlv/bin/
+COPY --from=build-stage /go/src/github.com/prasetyowira/halodoc-tlv/input.txt /opt/halodoc-tlv/
 RUN ls -la /opt/halodoc
-RUN ls -la /opt/halodoc/bin
-RUN chmod +x /opt/halodoc/bin/halodoc
+RUN ls -la /opt/halodoc-tlv/bin
+RUN chmod +x /opt/halodoc-tlv/bin/halodoc
 
 # Create appuser
 RUN adduser -D -g '' halodoc
 USER halodoc
 
-CMD ["/opt/halodoc/bin/halodoc", "< input.txt"]
+CMD ["/opt/halodoc-tlv/bin/halodoc", "< input.txt"]

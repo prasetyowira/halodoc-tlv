@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/prasetyowira/halodoc/internal/tlv_solver"
+	"github.com/prasetyowira/halodoc-tlv/internal/tlv_solver"
 	"github.com/spf13/cobra"
 )
 

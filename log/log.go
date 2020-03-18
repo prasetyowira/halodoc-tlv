@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"github.com/prasetyowira/halodoc/config"
+	"github.com/prasetyowira/halodoc-tlv/config"
 )
 
 // Logger defines a set of methods for writing application logs. Derived from and

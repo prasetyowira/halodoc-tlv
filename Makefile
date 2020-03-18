@@ -27,7 +27,7 @@ help:
 build:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
-	go build -ldflags "-X github.com/prasetyowira/halodoc/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/prasetyowira/halodoc/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}
+	go build -ldflags "-X github.com/prasetyowira/halodoc-tlv/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/prasetyowira/halodoc-tlv/version.BuildDate=${BUILD_DATE}" -o bin/${BIN_NAME}
 
 get-deps:
 	dep ensure
@@ -35,7 +35,7 @@ get-deps:
 build-alpine:
 	@echo "building ${BIN_NAME} ${VERSION}"
 	@echo "GOPATH=${GOPATH}"
-	go build -ldflags '-w -linkmode external -extldflags "-static" -X github.com/prasetyowira/halodoc/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/prasetyowira/halodoc/version.BuildDate=${BUILD_DATE}' -o bin/${BIN_NAME}
+	go build -ldflags '-w -linkmode external -extldflags "-static" -X github.com/prasetyowira/halodoc-tlv/version.GitCommit=${GIT_COMMIT}${GIT_DIRTY} -X github.com/prasetyowira/halodoc-tlv/version.BuildDate=${BUILD_DATE}' -o bin/${BIN_NAME}
 
 package:
 	@echo "building image ${BIN_NAME} ${VERSION} $(GIT_COMMIT)"

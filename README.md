@@ -26,7 +26,7 @@ $ make package
 To run inside docker
 ```console
 $ docker pull ariwira/halodoc:latest
-$ docker run --rm ariwira/halodoc bash -c "halodoc < /opt/halodoc/input.txt"
+$ docker run --rm ariwira/halodoc bash -c "halodoc < /opt/halodoc-tlv/input.txt"
 or
 $ docker run --rm ariwira/halodoc bash -c "halodoc UPPRCS-0005-abcde"
 ```
