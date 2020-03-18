@@ -14,7 +14,7 @@ on:
     pull_request:
 
 env:
-  IMAGE_NAME: ariwira/halodoc
+  IMAGE_NAME: halodoc-tlv
 
 jobs:
   test:

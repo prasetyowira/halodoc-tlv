@@ -1,5 +1,5 @@
 # Build Stage
-FROM golang:1.13.0-alpine AS builder
+FROM golang:1.14.0-alpine AS builder
 
 ENV GOFLAGS="-mod=readonly"
 
@@ -15,6 +15,8 @@ ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 ADD . /go/src/github.com/prasetyowira/halodoc
 WORKDIR /go/src/github.com/prasetyowira/halodoc
+
+RUN go mod download
 
 RUN make build-alpine
 
