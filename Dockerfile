@@ -1,5 +1,5 @@
 # Build Stage
-FROM golang:1.14.0-alpine AS builder
+FROM golang:1.14.0-alpine AS build-stage
 
 ENV GOFLAGS="-mod=readonly"
 
